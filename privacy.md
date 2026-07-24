@@ -4,7 +4,7 @@
 
 ## 1. Who we are
 
-Pro Cart is a Shopify application developed and operated by **Milani** (CVR: **40544097**), a sole proprietorship registered in Denmark.
+Pro Cart is a Shopify application developed and operated by **Caziel** (CVR: **40544097**), a sole proprietorship registered in Denmark.
 
 For any questions about this policy or about how we handle data, contact us at **contactcaziel@gmail.com**.
 
@@ -103,7 +103,7 @@ Under the GDPR, merchants and their customers have the right to:
 - Request data portability
 - Lodge a complaint with a supervisory authority. In Denmark this is Datatilsynet (datatilsynet.dk)
 
-To exercise any of these rights, contact **contactcaziel@gmail.com**. We respond within 30 days.
+To exercise any of these rights, contact **contactcaziel@gmail.com**. We respond within 2-3 days.
 
 ## 10. Children
 
