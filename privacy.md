@@ -1,6 +1,6 @@
 # Privacy Policy — Pro Cart
 
-**Last updated:** 22 July 2026
+**Last updated:** 22 August 2026
 
 ## 1. Who we are
 
@@ -14,7 +14,7 @@ We are the data controller for the information described below.
 
 This policy explains what data Pro Cart collects when a merchant installs the app on their Shopify store, why we collect it, how we store it, and what rights merchants and their customers have.
 
-Pro Cart adds a customizable side cart to Shopify storefronts, with features such as rewards, upsells, add-ons, discount codes, and trust badges.
+Pro Cart adds a customizable side cart to Shopify storefronts, with features such as reward tiers, upsells, subscriptions, discount codes, and trust badges.
 
 ## 3. Information we collect
 
@@ -25,7 +25,7 @@ When you install Pro Cart, we receive and store:
 - **Store identity**: your `.myshopify.com` domain and Shopify store ID
 - **Access credentials**: an access token that lets the app communicate with your store, plus the scopes you have granted
 - **Account details** supplied by Shopify during installation, which may include the store owner's name, email address, and locale
-- **App configuration**: every setting you choose inside Pro Cart, including colours, text, reward thresholds, selected upsell and add-on products, and typography
+- **App configuration**: every setting you choose inside Pro Cart, including colours, text, reward thresholds, selected upsell products, and typography
 
 ### 3.2 Product information
 
@@ -39,13 +39,21 @@ To show merchants how the cart performs, Pro Cart records events such as:
 
 - Cart views
 - Checkout button clicks
-- Upsell and add-on additions, including the product involved and the amount
+- Upsell additions, including the product involved and the amount
 
 These records are tied to the store, not to individual shoppers. We do **not** collect shopper names, email addresses, payment details, or IP addresses.
 
 ### 3.4 Order data
 
-When an order is completed, Pro Cart may store the Shopify order ID, total value, and line items in order to attribute revenue to the cart. This data contains no customer identifiers.
+Pro Cart requests the `read_orders` scope and subscribes to Shopify's `orders/create` webhook. When an order is completed, we store:
+
+- The Shopify order ID and the order total
+- For each line item: the product ID, title, quantity and price
+- Which reward thresholds the cart had reached at checkout
+
+We use this to show merchants which upsells and rewards led to completed sales, so that the figures in our analytics reflect real orders rather than cart activity.
+
+We do **not** store customer names, email addresses, phone numbers, shipping or billing addresses, or payment details.
 
 ## 4. Why we process this data
 
@@ -53,7 +61,7 @@ We process the data above in order to:
 
 - Operate the app and render the cart correctly on your storefront
 - Save and restore your configuration
-- Provide analytics on cart performance
+- Provide analytics on cart and upsell performance
 - Respond to support requests
 - Comply with legal obligations
 
@@ -72,8 +80,6 @@ We do not sell data, and we do not share it for advertising.
 
 Data is shared only with the infrastructure providers listed above, and with Shopify itself as part of normal app operation.
 
-If a merchant enables the Trustpilot widget, Trustpilot's own script is loaded on the storefront and is subject to Trustpilot's privacy policy. This is optional and disabled unless the merchant turns it on.
-
 ## 7. How long we keep data
 
 We keep configuration and analytics data for as long as the app remains installed.
@@ -86,11 +92,11 @@ We also support Shopify's mandatory GDPR webhooks:
 - `customers/redact` — requests to delete a customer's data
 - `shop/redact` — requests to delete all data for a store
 
-Because Pro Cart does not store personal customer data, responses to customer-level requests will normally confirm that no such data is held.
+Order records are stored against the Shopify order ID only. Because Pro Cart does not store customer identifiers, responses to customer-level requests will normally confirm that no personal customer data is held.
 
 ## 8. Security
 
-Access tokens and database credentials are stored as encrypted environment variables and are never exposed to the storefront. All communication between the app, Shopify, and our database uses HTTPS/TLS.
+Access tokens and database credentials are stored as encrypted environment variables and are never exposed to the storefront. All communication between the app, Shopify, and our database uses HTTPS/TLS. Data is encrypted at rest by our infrastructure providers.
 
 ## 9. Your rights
 
