@@ -45,15 +45,14 @@ The app requests `write_files` so a merchant can upload a trust badge image to t
 
 ### 3.4 Storefront analytics
 
-To provide merchant-facing cart analytics, Pro Cart records store-scoped events such as:
+To provide merchant-facing cart analytics, the current Pro Cart storefront records only the store-scoped events needed by the analytics UI:
 
 - Cart views
-- Checkout button clicks
 - Upsell additions
-- Legacy add-on additions, where applicable to historic data
-- Shopper selections of existing Shopify selling-plan options
 
-An event can include the relevant product ID, product title, an aggregate amount, and a timestamp.
+An upsell event can include the relevant product ID, product title, an aggregate amount, and a timestamp. A cart-view event records the event and timestamp.
+
+Existing installations can contain historical checkout, legacy add-on, or selling-plan event categories created by older Pro Cart builds. The current storefront endpoint no longer accepts those legacy event types, and those records are removed with the rest of the shop-scoped analytics data on uninstall or applicable redaction.
 
 These records are associated with the Shopify store, not with a shopper profile. Pro Cart does not intentionally attach shopper names, email addresses, phone numbers, postal addresses, IP addresses, browser fingerprints, or payment details to these storefront analytics events.
 
