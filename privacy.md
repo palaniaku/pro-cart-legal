@@ -65,7 +65,7 @@ The webhook is configured to request only the fields needed for this purpose. Pr
 - Shopify order ID
 - The time used for paid-order analytics
 - Order total
-- A minimized line-item projection containing product ID, title, quantity, price, and whether a line was attributed to a Pro Cart upsell, legacy add-on, or free gift
+- A minimized line-item projection containing product ID, title, quantity, unit price, net attributed line revenue after Shopify-allocated line discounts, and whether a line was attributed to a Pro Cart upsell, legacy add-on, or free gift
 - The Pro Cart reward-tier cart attribute used for aggregate reward analytics
 
 Pro Cart does **not** persist customer name, customer email, customer phone number, shipping address, billing address, or payment details from the order webhook.
