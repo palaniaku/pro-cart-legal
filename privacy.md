@@ -100,7 +100,14 @@ These providers process data on our behalf under their applicable security and d
 
 We do not sell data and do not share it for advertising.
 
-Data is shared only as needed with Shopify and the infrastructure providers used to operate Pro Cart, or where disclosure is required by law.
+Data is shared as needed with Shopify and the infrastructure providers used to operate Pro Cart, or where disclosure is required by law.
+
+If a merchant enables optional storefront presentation features, the shopper's browser can also connect directly to the relevant third-party service:
+
+- **Google Fonts** — only when the merchant selects an optional Google-hosted font in Pro Cart typography settings. The browser requests the selected font stylesheet and font resources from Google.
+- **Trustpilot** — only when the merchant enables the Trustpilot integration and provides the required Trustpilot configuration. Pro Cart then loads Trustpilot's official TrustBox resources so Trustpilot can render the merchant's review content.
+
+Those optional services process browser/network information under their own terms and privacy notices. Merchants can avoid those connections by leaving the corresponding optional feature disabled.
 
 ## 7. Retention and deletion
 
