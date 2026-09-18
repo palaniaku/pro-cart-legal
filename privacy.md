@@ -14,7 +14,7 @@ We are the data controller for the information described below.
 
 This policy explains what data Pro Cart processes when a merchant installs the app on a Shopify store, why the data is processed, how it is stored, and how privacy requests are handled.
 
-Pro Cart adds a customizable side cart to Shopify storefronts, with features such as reward tiers, upsells, subscriptions, discount codes, notes, payment icons, and trust content.
+Pro Cart adds a customizable side cart to Shopify storefronts, with features such as reward tiers, upsells, display/selection of existing Shopify selling plans, discount codes, notes, payment icons, and trust content.
 
 ## 3. Information we process
 
@@ -51,7 +51,7 @@ To provide merchant-facing cart analytics, Pro Cart records store-scoped events 
 - Checkout button clicks
 - Upsell additions
 - Legacy add-on additions, where applicable to historic data
-- Subscription additions
+- Shopper selections of existing Shopify selling-plan options
 
 An event can include the relevant product ID, product title, an aggregate amount, and a timestamp.
 
