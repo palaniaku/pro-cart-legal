@@ -50,7 +50,7 @@ To provide merchant-facing cart analytics, the current Pro Cart storefront recor
 - Cart views
 - Upsell additions
 
-An upsell event can include the relevant product ID, product title, an aggregate amount, and a timestamp. A cart-view event records the event and timestamp.
+An upsell event contains the relevant product ID and timestamp. A cart-view event records only the event and timestamp. New storefront analytics events don't store product titles or event amounts.
 
 Existing installations can contain historical checkout, legacy add-on, or selling-plan event categories created by older Pro Cart builds. The current storefront endpoint no longer accepts those legacy event types, and those records are removed with the rest of the shop-scoped analytics data on uninstall or applicable redaction.
 
