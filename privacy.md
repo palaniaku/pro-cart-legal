@@ -111,7 +111,7 @@ Those optional services process browser/network information under their own term
 
 ## 7. Retention and deletion
 
-Merchant configuration, session data, storefront analytics, and paid-order analytics are retained while needed to provide Pro Cart to an installed merchant.
+Merchant configuration, session data, storefront analytics, and paid-order analytics are retained for the period that Pro Cart remains installed so the merchant can use the app and its analytics history. Pro Cart does not currently apply a separate time-based retention period after uninstall.
 
 When a merchant uninstalls Pro Cart, the app processes Shopify's `app/uninstalled` webhook and deletes shop-scoped local app data, including sessions, app configuration, upsell rules, analytics events, and stored order analytics. Shopify-side resource cleanup is attempted where Shopify still provides the access required to do so.
 
