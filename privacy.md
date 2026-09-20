@@ -1,128 +1,160 @@
 # Privacy Policy — Pro Cart
 
-**Last updated:** 22 August 2026
+**Last updated:** 18 September 2026
 
 ## 1. Who we are
 
 Pro Cart is a Shopify application developed and operated by **Caziel** (CVR: **40544097**), a sole proprietorship registered in Denmark.
 
-For any questions about this policy or about how we handle data, contact us at **contactcaziel@gmail.com**.
+For questions about this policy or how we handle data, contact **contactcaziel@gmail.com**.
 
 We are the data controller for the information described below.
 
 ## 2. What this policy covers
 
-This policy explains what data Pro Cart collects when a merchant installs the app on their Shopify store, why we collect it, how we store it, and what rights merchants and their customers have.
+This policy explains what data Pro Cart processes when a merchant installs the app on a Shopify store, why the data is processed, how it is stored, and how privacy requests are handled.
 
-Pro Cart adds a customizable side cart to Shopify storefronts, with features such as reward tiers, upsells, subscriptions, discount codes, and trust badges.
+Pro Cart adds a customizable side cart to Shopify storefronts, with features such as reward tiers, upsells, display/selection of existing Shopify selling plans, discount codes, notes, payment icons, and trust content.
 
-## 3. Information we collect
+## 3. Information we process
 
-### 3.1 From the merchant's store
+### 3.1 Merchant and Shopify session information
 
-When you install Pro Cart, we receive and store:
+When Pro Cart is installed, Shopify provides the information required to authenticate the store and operate the embedded app. Pro Cart's Shopify session storage can contain:
 
-- **Store identity**: your `.myshopify.com` domain and Shopify store ID
-- **Access credentials**: an access token that lets the app communicate with your store, plus the scopes you have granted
-- **Account details** supplied by Shopify during installation, which may include the store owner's name, email address, and locale
-- **App configuration**: every setting you choose inside Pro Cart, including colours, text, reward thresholds, selected upsell products, and typography
+- The store's `.myshopify.com` domain
+- The Shopify access token and granted scopes
+- Shopify user/session identifiers
+- For online sessions, account information supplied by Shopify such as first name, last name, email address, locale, account-owner status, and related session metadata
 
-### 3.2 Product information
+This information is used only to authenticate the merchant, maintain the embedded app session, and communicate with Shopify on the merchant's behalf.
 
-Pro Cart requests the `read_products` scope so it can display product titles, images, variants, and prices inside the cart. We read this data when the cart is rendered. We do not store a copy of your full product catalogue.
+### 3.2 App configuration
 
-The app also requests `write_files` so merchants can upload a trust badge image, which is stored in the merchant's own Shopify Files.
+Pro Cart stores settings by shop, including cart design and behavior settings, reward configuration, selected gift and upsell products, storefront text, and trust/presentation settings.
 
-### 3.3 Usage and analytics data
+The app also stores identifiers for Shopify resources that Pro Cart itself manages, such as app-owned automatic discounts.
 
-To show merchants how the cart performs, Pro Cart records events such as:
+### 3.3 Product information
+
+Pro Cart requests the `read_products` scope so merchants can select products and the app can display product titles, images, variants, prices, and related product information needed by cart features.
+
+Pro Cart does not store a copy of the merchant's full product catalogue. Product references selected for app features can be stored as part of the merchant's configuration.
+
+The app requests `write_files` so a merchant can upload a trust badge image to the merchant's own Shopify Files.
+
+### 3.4 Storefront analytics
+
+To provide merchant-facing cart analytics, the current Pro Cart storefront records only the store-scoped events needed by the analytics UI:
 
 - Cart views
-- Checkout button clicks
-- Upsell additions, including the product involved and the amount
+- Upsell additions
 
-These records are tied to the store, not to individual shoppers. We do **not** collect shopper names, email addresses, payment details, or IP addresses.
+An upsell event contains the relevant product ID and timestamp. A cart-view event records only the event and timestamp. New storefront analytics events don't store product titles or event amounts.
 
-### 3.4 Order data
+Existing installations can contain historical checkout, legacy add-on, or selling-plan event categories created by older Pro Cart builds. The current storefront endpoint no longer accepts those legacy event types, and those records are removed with the rest of the shop-scoped analytics data on uninstall or applicable redaction.
 
-Pro Cart requests the `read_orders` scope and subscribes to Shopify's `orders/create` webhook. When an order is completed, we store:
+These records are associated with the Shopify store, not with a shopper profile. Pro Cart does not intentionally attach shopper names, email addresses, phone numbers, postal addresses, IP addresses, browser fingerprints, or payment details to these storefront analytics events.
 
-- The Shopify order ID and the order total
-- For each line item: the product ID, title, quantity and price
-- Which reward thresholds the cart had reached at checkout
+### 3.5 Paid-order analytics
 
-We use this to show merchants which upsells and rewards led to completed sales, so that the figures in our analytics reflect real orders rather than cart activity.
+Pro Cart requests `read_orders` and subscribes to Shopify's `orders/paid` webhook so merchant analytics can reflect completed paid orders rather than only cart activity.
 
-We do **not** store customer names, email addresses, phone numbers, shipping or billing addresses, or payment details.
+The webhook is configured to request only the fields needed for this purpose. Pro Cart stores:
+
+- Shopify order ID
+- The time used for paid-order analytics
+- Order total
+- A minimized line-item projection containing product ID, title, quantity, unit price, net attributed line revenue after Shopify discount allocations, and whether a line was attributed to a Pro Cart upsell, legacy add-on, or free gift
+- The Pro Cart reward-tier cart attribute used for aggregate reward analytics
+
+Pro Cart does **not** persist customer name, customer email, customer phone number, shipping address, billing address, or payment details from the order webhook.
+
+A Shopify order ID can still relate to an identifiable customer. For that reason, Pro Cart treats retained order records as protected customer data and supports Shopify's mandatory privacy webhooks.
 
 ## 4. Why we process this data
 
-We process the data above in order to:
+We process the data above to:
 
-- Operate the app and render the cart correctly on your storefront
-- Save and restore your configuration
-- Provide analytics on cart and upsell performance
-- Respond to support requests
+- Authenticate merchants and operate the embedded Shopify app
+- Render and configure Pro Cart on the storefront
+- Save and restore merchant configuration
+- Synchronize app-owned Shopify discounts and other required Shopify resources
+- Provide cart, reward, upsell, and paid-order analytics to the merchant
+- Respond to support and privacy requests
 - Comply with legal obligations
 
-Our legal basis is the performance of our contract with the merchant, and our legitimate interest in operating and improving the service.
+We limit processing to these purposes and do not sell merchant or customer data or use it for third-party advertising.
 
 ## 5. Where data is stored
 
-- **Database**: PostgreSQL hosted by Neon (servers in the EU, eu-west-2)
-- **Application hosting**: Railway
+Pro Cart uses third-party infrastructure providers to operate the service, including:
 
-Both providers act as data processors on our behalf and are bound by their own security and data protection commitments.
+- **Neon** for PostgreSQL database infrastructure
+- **Railway** for application hosting
+
+These providers process data on our behalf under their applicable security and data-protection terms. We do not state a specific data-residency region in this policy unless it is confirmed by the active production configuration.
 
 ## 6. Who we share data with
 
-We do not sell data, and we do not share it for advertising.
+We do not sell data and do not share it for advertising.
 
-Data is shared only with the infrastructure providers listed above, and with Shopify itself as part of normal app operation.
+Data is shared as needed with Shopify and the infrastructure providers used to operate Pro Cart, or where disclosure is required by law.
 
-## 7. How long we keep data
+If a merchant enables optional storefront presentation features, the shopper's browser can also connect directly to the relevant third-party service:
 
-We keep configuration and analytics data for as long as the app remains installed.
+- **Google Fonts** — only when the merchant selects an optional Google-hosted font in Pro Cart typography settings. The browser requests the selected font stylesheet and font resources from Google.
+- **Trustpilot** — only when the merchant enables the Trustpilot integration and provides the required Trustpilot configuration. Pro Cart then loads Trustpilot's official TrustBox resources so Trustpilot can render the merchant's review content.
 
-When a merchant uninstalls Pro Cart, we receive Shopify's `app/uninstalled` webhook and immediately delete all data associated with that store: session and access credentials, app configuration, upsell rules, analytics events, and order records. Nothing is retained after uninstallation.
+Those optional services process browser/network information under their own terms and privacy notices. Merchants can avoid those connections by leaving the corresponding optional feature disabled.
 
-We also support Shopify's mandatory GDPR webhooks:
+## 7. Retention and deletion
 
-- `customers/data_request` — requests for a customer's stored data
-- `customers/redact` — requests to delete a customer's data
-- `shop/redact` — requests to delete all data for a store
+Merchant configuration, session data, storefront analytics, and paid-order analytics are retained for the period that Pro Cart remains installed so the merchant can use the app and its analytics history. Pro Cart does not currently apply a separate time-based retention period after uninstall.
 
-Order records are stored against the Shopify order ID only. Because Pro Cart does not store customer identifiers, responses to customer-level requests will normally confirm that no personal customer data is held.
+When a merchant uninstalls Pro Cart, the app processes Shopify's `app/uninstalled` webhook and deletes shop-scoped local app data, including sessions, app configuration, upsell rules, analytics events, and stored order analytics. Shopify-side resource cleanup is attempted where Shopify still provides the access required to do so.
+
+Pro Cart also supports Shopify's mandatory privacy webhooks:
+
+- `customers/data_request` — authenticated requests concerning data associated with a customer
+- `customers/redact` — deletes stored order-analytics records for the order IDs Shopify identifies for redaction
+- `shop/redact` — deletes shop-scoped sessions, settings, rules, analytics events, and stored order analytics
+
+These handlers are authenticated through Shopify's webhook verification flow.
 
 ## 8. Security
 
-Access tokens and database credentials are stored as encrypted environment variables and are never exposed to the storefront. All communication between the app, Shopify, and our database uses HTTPS/TLS. Data is encrypted at rest by our infrastructure providers.
+Pro Cart uses Shopify's authentication and webhook-verification mechanisms. Application secrets and database credentials are supplied to the application through protected production environment configuration rather than exposed to the storefront.
+
+Shopify access tokens are stored in the app's server-side session storage and are not returned to storefront clients. Communications between the application, Shopify, and infrastructure providers use encrypted HTTPS/TLS connections where supported by those services. Infrastructure providers also apply their own storage and security controls.
 
 ## 9. Your rights
 
-Under the GDPR, merchants and their customers have the right to:
+Depending on applicable data-protection law, merchants and their customers may have rights including:
 
-- Request access to personal data we hold
-- Request correction of inaccurate data
-- Request deletion of data
-- Object to or restrict processing
-- Request data portability
-- Lodge a complaint with a supervisory authority. In Denmark this is Datatilsynet (datatilsynet.dk)
+- Requesting access to personal data
+- Requesting correction of inaccurate data
+- Requesting deletion of data
+- Objecting to or restricting certain processing
+- Requesting data portability
+- Lodging a complaint with the relevant supervisory authority
 
-To exercise any of these rights, contact **contactcaziel@gmail.com**. We respond within 2-3 days.
+In Denmark, the supervisory authority is Datatilsynet.
+
+To make a privacy request, contact **contactcaziel@gmail.com**. We will respond in accordance with applicable legal requirements.
 
 ## 10. Children
 
-Pro Cart is a business tool for merchants and is not directed at children. We do not knowingly collect data from anyone under 16.
+Pro Cart is a business application for Shopify merchants and is not directed at children. We do not knowingly collect data from children through the Pro Cart merchant application.
 
 ## 11. Changes to this policy
 
-We may update this policy as the app develops. The date at the top reflects the most recent revision. Material changes will be communicated to merchants through the app or by email.
+We may update this policy as the service develops or as legal and platform requirements change. The date at the top reflects the most recent revision.
 
 ## 12. Contact
 
-**Caziel**
-CVR: 40544097
+**Caziel**  
+CVR: 40544097  
 Denmark
 
-Email: contactcaziel@gmail.com
+Email: **contactcaziel@gmail.com**
