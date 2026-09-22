@@ -54,17 +54,17 @@ Storefront analytics and minimized paid-order analytics may be retained for up t
 
 When the app is uninstalled, or when Shopify sends an applicable shop-redaction request, Milani Cart deletes locally stored data associated with that store, including sessions, app settings, upsell rules, analytics events, and stored paid-order analytics.
 
+
+
 ## 6. Shopify privacy requests
 
-Milani Cart supports Shopify's mandatory privacy processes:
+Milani Cart receives Shopify's mandatory privacy webhooks. Every webhook is authenticated before any action is taken.
 
-- `customers/data_request`
-- `customers/redact`
-- `shop/redact`
+- `customers/redact`: retained order analytics for the Shopify order IDs in the request are deleted automatically.
+- `shop/redact`: all locally stored data for the store is deleted automatically.
+- `customers/data_request`: the request is authenticated and logged, and then handled manually. Any retained order analytics for the requested orders are provided to the merchant within 30 days.
 
-Customer redaction requests can remove retained order analytics associated with the Shopify order IDs included in the request.
-
-Privacy webhooks are authenticated before any deletion or privacy action is performed.
+Privacy requests can also be sent directly to contactcaziel@gmail.com.
 
 ## 7. Service providers
 
