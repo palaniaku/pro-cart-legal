@@ -8,7 +8,7 @@ This policy explains how Milani Cart processes information when a merchant insta
 
 Milani Cart is a Shopify application operated by **Caziel** (CVR: **40544097**), Denmark.
 
-For privacy questions, contact **contactcaziel@gmail.com**.
+For privacy questions, contact **milaniapps@outlook.com**.
 
 ## 2. What information Milani Cart processes
 
@@ -62,7 +62,7 @@ Milani Cart receives Shopify's mandatory privacy webhooks. Every webhook is auth
 - `shop/redact`: all locally stored data for the store is deleted automatically.
 - `customers/data_request`: the request is authenticated and stored in Milani Cart's database with Shopify's request ID, the customer ID, the requested order IDs, the time it was received, and its status. No other customer data from the request is stored. The request is shown to the merchant in the Milani Cart app together with the data Milani Cart stores about the requested orders, which the merchant can download and provide to the customer, and then mark the request as handled. Stored requests are deleted when the app is uninstalled, and when Shopify sends a `shop/redact` request or a `customers/redact` request for that customer.
 
-Privacy requests can also be sent directly to contactcaziel@gmail.com.
+Privacy requests can also be sent directly to milaniapps@outlook.com.
 
 ## 7. Service providers
 
@@ -84,7 +84,7 @@ Depending on applicable law, including the GDPR, individuals may have rights to 
 
 Complaints may also be submitted to the relevant data-protection authority. In Denmark, this is **Datatilsynet**.
 
-To make a privacy request, contact **contactcaziel@gmail.com**.
+To make a privacy request, contact **milaniapps@outlook.com**.
 
 ## 10. Changes to this policy
 
